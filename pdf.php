@@ -18,6 +18,15 @@ function pdf_all_button() {
 		$(document).ready(function() {
 				// when user clicks
 				$('#export_pdf').click( function(){
+					//fix popup blockers
+					var win = window.open('');
+					window.oldOpen = window.open;
+					window.open = function(url) { // reassignment function
+						win.location = url;
+						window.open = oldOpen;
+						win.focus();
+					}
+					
 					// the stuff we export
 					var content = $('.entry-content').html();
 					var title = $('.entry-title').html();
@@ -50,6 +59,15 @@ function pdf_fouryear_button() {
 		$(document).ready(function() {
 				// when user clicks
 				$('#export_pdf_fouryear').click( function(){
+					//fix popup blockers
+					var win = window.open('');
+					window.oldOpen = window.open;
+					window.open = function(url) { // reassignment function
+						win.location = url;
+						window.open = oldOpen;
+						win.focus();
+					}
+					
 					// the stuff we export
 					var content = $('.four-year').html();
 					var title = $('.entry-title').html()  + ' - Four Year Plan';
@@ -82,6 +100,15 @@ function pdf_star_button() {
 		$(document).ready(function() {
 				// when user clicks
 				$('#export_pdf_star').click( function(){
+					//fix popup blockers
+					var win = window.open('');
+					window.oldOpen = window.open;
+					window.open = function(url) { // reassignment function
+						win.location = url;
+						window.open = oldOpen;
+						win.focus();
+					}
+					
 					// the stuff we export
 					var content = $('.star').html();
 					var title = $('.entry-title').html() + ' - Star Act';
