@@ -2,17 +2,17 @@
 /**
  * Plugin Name: PDF
  * Description: Tools to convert pages to pdf
- * Version: .1
+ * Version: 1.0
  * Author: CSUN Undergraduate Studies
  */
 
 //function to output button
-function pdf_all_button() {
-	echo '<button type="button" class="btn btn-default" id="export_pdf">';
-	echo	'Download Program PDF';
-	echo '</button>';
+function pdf_all_button() {	?>
+	<span class="no-line" href="" alt="download" title="Download this page.">
+		<span id="export_pdf" class="glyphicon glyphicon-cloud-download share-icon"></span>
+	</span>
 	
-	?>
+
 	<script type="text/javascript">
 	(function($) {
 		$(document).ready(function() {
@@ -28,8 +28,8 @@ function pdf_all_button() {
 					}
 					
 					// the stuff we export
-					var content = $('.entry-content').html();
-					var title = $('.entry-title').html();
+					var content = $('#inset-content').html();
+					var title = $('.inner-title').html();
 					$.ajax({
 						url: '/wp-content/plugins/pdf/default.php',
 						data:{ 
