@@ -54,8 +54,9 @@ $file = 'files/'.seoUrl($title).'.pdf';
 // http://www.tcpdf.org/doc/code/classTCPDF.html#a3d6dcb62298ec9d42e9125ee2f5b23a1
 $pdf->Output($file, 'F');
 
-// // get path to the file
-$file = '/wp-content/plugins/pdf/'.$file;
+//get path to the file
+//$file = site_url().'/wp-content/plugins/pdf/'.$file;
+$file = '/catalog/catalog/wp-content/plugins/pdf/'.$file;
 
 echo $file;
 

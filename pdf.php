@@ -31,7 +31,8 @@ function pdf_all_button() {	?>
 					var content = $('#inset-content').html();
 					var title = $('.inner-title').html();
 					$.ajax({
-						url: '/wp-content/plugins/pdf/default.php',
+						//url: '<?php echo site_url(); ?>/wp-content/plugins/pdf/default.php',
+						url: '/catalog/catalog/wp-content/plugins/pdf/default.php',
 						data:{ 
 							content: content,
 							title: title,
