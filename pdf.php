@@ -7,9 +7,14 @@
  */
 
 //function to output button
-function pdf_all_button() {	?>
+function pdf_all_button() {	
+	$style = "<style> span,div {margin:0; padding:0;} h1,h2,h3,h4,h5,h6{padding:0; margin: 0; font-size:14px;} p, ul, ol {font-size:12px;}</style>";
+	//$style = '<link rel="stylesheet" type="text/css" media="print" href="'.get_bloginfo('template_directory').'/print.css">';
+
+
+?>
 	<span class="no-line" href="" alt="download" title="Download this page.">
-		<span id="export_pdf" class="glyphicon glyphicon-cloud-download share-icon"></span>
+		<span id="export_pdf" class="glyphicon glyphicon-save share-icon"></span>
 	</span>
 	
 
@@ -29,7 +34,12 @@ function pdf_all_button() {	?>
 					
 					// the stuff we export
 					var content = $('#inset-content').html();
-					var title = $('.inner-title').html();
+					var title = $('.inner-title').text();
+					
+					content = content.replace(/<span.*?>|<\/span>|<div.*?>|<\/div>/g, '');
+					content = '<?php echo $style ?>'+content;
+					title = title.trim();
+					
 					$.ajax({
 						//url: '<?php echo site_url(); ?>/wp-content/plugins/pdf/default.php',
 						url: '/catalog/catalog/wp-content/plugins/pdf/default.php',
